@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    max-width: 1400px;
+    display: block;
+    margin: auto;
+    min-height: 100vh;
+    background: #191919;
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    background: #1a1a1a;
+}
+
+.link-group{
+    list-style: none;
+    display: flex;
+}
+
+.link a{
+    color: #f4f5ef;
+    
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 10px 30px;
+    margin: 0 20px;
+    line-height: 80px;
+    transition: .5s;
+    font-size: 20px;
+  
+}
+
+
+.link a:hover{
+    opacity: 1;
+    border:3px solid #fff;
+    color:#0c84d3;
+   
+}
+
+
+
+
+.home-section{
+    width: 100%;
+    height: 100vh;
+    padding: 0 150px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 0;
+    opacity: 0;
+    transition: 1s;
+    background:"C:\Users\Nilesh Yadav\Downloads\tunnel_-_68978 (1080p).mp4";
+}
+
+.hero-heading{
+    color: #fff;
+    font-size: 70px;
+    text-transform: capitalize;
+    font-weight: 300;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.back-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+opacity: 0.3;
+}
+.home-img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 50%;
+    object-fit: cover;
+    opacity: 0.9 ;
+}
+.home-section{
+    /* previous styles */
+    position: fixed;
+}
+.home-section.active,
+.project-section.active,
+.about-section.active,
+.contact-section.active{
+    position: relative;
+    opacity: 1;
+    z-index: 8;
+}
+.project-section{
+    width: 100%;
+    min-height: 100vh;
+    padding: 150px 100px 100px;
+    position: fixed;
+    top: 0;
+    transition: 1s;
+    opacity: 0;
+}
+
+.project-heading{
+    font-size: 100px;
+    background:#fff;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #1a1a1a;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 8px transparent;
+}
+
+.project-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 100px;
+}
+
+.project-card{
+    height: 400px;
+    position: relative;
+   
+}
+
+.project-img{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: fill;
+    transition: .5s;
+    border-radius: 16px;
+    box-shadow:2px 2px 2px #fff;
+}
+
+.project-content{
+    position: relative;
+    padding: 40px;
+    color: #fff;
+    transition: .5s;
+    opacity: 0;
+}
+
+.project-title{
+    font-size: 50px;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 300;
+}
+
+.project-info{
+    margin: 40px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.project-btn-grp{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.project-btn{
+    height: 40px;
+    text-transform: capitalize;
+    font-size: 18px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.project-btn.live{
+    background: none;
+    border: 2px solid #fff;
+}
+
+.project-card:hover .project-img{
+    filter: blur(20px);
+}
+
+.project-card:hover .project-content{
+    opacity: 1;
+}
+/* about-section */
+
+.about-section{
+    width: 100%;
+    min-height: 100vh;
+    padding: 150px 100px 0;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    transition: 1s;
+}
+
+.about{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 65%;
+    grid-gap: 40px;
+    color:#fff;
+   
+}
+
+.about-img-container{
+    position: relative;
+}
+
+.info{
+    color: #fff;
+    width: 400px;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    left: 120%;
+    top: -80%;
+}
+
+.about-img{
+    position: relative;
+  width: 100%;
+    height:80%;
+    object-fit: cover;
+    opacity: 0.6 ;
+    border-radius: 10px;
+}
+
+.download-cv-btn{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: .5s;
+    background: rgba(9, 195, 223, 0.5);
+}
+
+.download-cv-btn:hover{
+    background: #000;
+}
+/* skills */
+
+.skill-section{
+    position: relative;
+    margin: 100px 0;
+}
+
+.heading{
+    text-align: center;
+    font-size: 60px;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 300;
+    margin-bottom: 100px;
+}
+
+.skills-container{
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 100px;
+    color: #fff;
+}
+
+.skill-card{
+    position: relative;
+}
+
+.skill-img{
+    display: block;
+    margin: auto;
+    height: 200px;
+}
+
+.skill-name{
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 30px 0 20px;
+}
+
+.skill-info{
+    text-align: center;
+    opacity: 0.5;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.skill-level{
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    border-radius: 50%;
+    border: 10px solid;
+}
+
+.skill-card:nth-child(1) .skill-level{
+    background: #ff4f4f28;
+    border-color: #ff4f4f;
+    color: #ff4f4f;
+}
+
+.skill-card:nth-child(2) .skill-level{
+    background: #4fa0ff28;
+    border-color: #4fa0ff;
+    color: #4fa0ff;
+}
+
+.skill-card:nth-child(3) .skill-level{
+    background: #ffed4f28;
+    border-color: #ffed4f;
+    color: #ffed4f;
+}
+
+.skill-card:nth-child(4) .skill-level{
+    background: #52ff4f28;
+    border-color: #52ff4f;
+    color: #52ff4f;
+}
+
+.skill-card:nth-child(5) .skill-level{
+    background: #4fdfff28;
+    border-color: #4fdfff;
+    color: #4fdfff;
+}
+.timeline{
+    display: block;
+    width: 80%;
+    margin: 150px auto;
+}
+
+.timeline .heading{
+    margin-bottom: 150px;
+}
+
+.card{
+    width: 45%;
+    padding: 30px;
+    border-radius: 10px;
+    color: #fff;
+    display: block;
+    margin: -50px 0;
+    position: relative;
+    background: #f00;
+}
+
+.card:nth-child(even){
+    margin-left: auto;
+}
+
+.card:nth-child(even):before{
+    content: '';
+    position: absolute;
+    left: -15%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 5px solid #191919;
+    border-radius: 50%;
+}
+
+.card:nth-child(even):after{
+    content: '';
+    position: absolute;
+    left: -8.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7%;
+    height: 2px;
+    background: #fff;
+    z-index: -1;
+}
+
+.card:nth-child(odd):before{
+    content: '';
+    position: absolute;
+    right: -13%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 5px solid #191919;
+    border-radius: 50%;
+}
+
+.card:nth-child(odd):after{
+    content: '';
+    position: absolute;
+    right: -8.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7%;
+    height: 2px;
+    background: #fff;
+    z-index: -1;
+}
+
+.card:nth-child(2), .card:nth-child(2):before{
+    background: #ff4f4f;
+}
+.card:nth-child(3), .card:nth-child(3):before{
+    background: #ffb84f;
+}
+.card:nth-child(4), .card:nth-child(4):before{
+    background: #3dca5c;
+}
+.card:nth-child(5), .card:nth-child(5):before{
+    background: #565252;
+}
+.card:nth-child(6), .card:nth-child(6):before{
+    background: #4fa0ff;
+}
+
+.card:nth-child(even) .card-body:before{
+    content: '';
+    position: absolute;
+    left: -12%;
+    top: 0;
+    width: 0px;
+    height: 100%;
+    border: 1px dashed #fff;
+    z-index: -1;
+}
+
+.card-title{
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.contact-section{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: 1s;
+    padding: 100px 150px;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+}
+
+.contact-form input, .contact-form textarea{
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+::placeholder{
+    color: #fff;
+}
+
+#msg{
+    height: 280px;
+    resize: none;
+    font-family: sans-serif;
+}
+
+.form-submit-btn{
+    background: #ff4f4f;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 15px 40px;
+    display: block;
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.map{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 2px solid #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.map iframe{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">NBRCODINGADDA
+        <ul class="link-group">
+            <li class="link active"><a href="#">Home</a></li>
+            <li class="link"><a href="#">projects</a></li>
+            <li class="link"><a href="#">about</a></li>
+            <li class="link"><a href="#">contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="home-section active">
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="image/co.mp4"type="video/mp4">
+        </video>
+        <h1 class="hero-heading">Myself <br>Nilesh Yadav <br>
+            web designer<br>data analyst.<br>
+       
+        </h1>
+      
+        <img src="image/IMG_20220330_133201.jpg " class="home-img" alt="">
+    </section>
+
+
+
+
+    <section class="project-section">
+        <h1 class="project-heading">Some of my projects</h1>
+        <div class="project-container">
+            <div class="project-card">
+                <img src="image/1.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 01</h1>
+                    <p class="project-info">
+                        A profile card is a card that carries saved profile content. Profile Cards let you select profile values consistently over all items on your website.                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="image/2.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 02</h1>
+                    <p class="project-info">
+                        The user interface (UI) is the point of human-computer interaction and communication in a device.keyboards, a mouse and the appearance of a desktop. It is also the way through which a user interacts with an application or a website.                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="image/3.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 03</h1>
+                    <p class="project-info">
+The primary purpose of the music streaming application is to play music available in the databases of the service, compose custom playlists and suggest similar songs                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="project-card">
+                <img src="/image/4.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 04</h1>
+                    <p class="project-info">
+                        Chess is a board game for two players, called White and Black, each controlling an army of chess pieces, with the objective to checkmate the opponent's king                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="image/5.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 05</h1>
+                    <p class="project-info">
+                        A website is a collection of web pages and related content that is identified by a common domain name and published on at least one web server.                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="image/6.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 06</h1>
+                    <p class="project-info">
+                        A digital clock displays the time digitally, as opposed to an analogue clock. Digital clocks are often associated with electronic drives, but the "digital" description refers only to the display, not to the drive mechanism.                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+         </section>
+   
+
+
+    <section class="about-section">
+        <div class="about">
+            <div class="about-img-container">
+                <img src="image/IMG_20220330_133201.jpg" class="about-img" alt="">
+                <button class="download-cv-btn">downlaod cv</button>
+              <div class="info">  My name is Nilesh Yadav. I was born & brought up in uttarpradesh . But now I am from mumbai for further studies
+                now i am completinjg my BCA last year from tilak maharashtra vidyapeeth pune,
+         I completed my hsc from thakur college of sciencve and commerce in mumbai .
+                My technical skills are in MS Office, MS Word, MS Excel,html,python ,sql,powerbi, MSpoweroint etc 
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="contact-section">
+        <form class="contact-form">
+            <input type="text" name="name" id="name" autocomplete="off" placeholder="name">
+            <input type="text" name="email" id="email" autocomplete="off" placeholder="email">
+            <textarea name="msg" id="msg" placeholder="message" autocomplete="off"></textarea>
+            <button type="submit" class="form-submit-btn">contact</button>
+        </form>
+        <!-- map -->
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d12668.134943331399!2d72.87457330858898!3d19.271097601133647!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDE1JzUzLjUiTiA3MsKwNTMnMTkuNiJF!5e0!3m2!1sen!2sin!4v1702454895654!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    
+<!-- skills -->
+<div class="skill-section">
+    <h1 class="heading">skills</h1>
+    <div class="skills-container">
+        <div class="skill-card">
+            <img src="image/html5-without-wordmark-color-logo-14D252D878-seeklogo.com.png" class="skill-img" alt="">
+            <div class="skill-level">99%</div>
+            <h1 class="skill-name">HTML</h1>
+            <p class="skill-info">What is HTML with explain?
+                Introduction to HTML
+                HTML stands for Hyper Text Markup Language. HTML is the standard markup language for creating Web pages. HTML describes the structure of a Web page. HTML consists of a series of elements. HTML elements tell the browser how to display the content.</p>
+        </div>
+        <div class="skill-card">
+            <img src="image/azure-sql-database-logo-D7A32C9CD9-seeklogo.com.png" class="skill-img" alt="">
+            <div class="skill-level">80%</div>
+            <h1 class="skill-name">SQL</h1>
+            <p class="skill-info">Structured query language (SQL) is a standard language for database creation and manipulation. MySQL is a relational database program that uses SQL queries. While SQL commands are defined by international standards, the MySQL software undergoes continual upgrades and improvements.
+            </p>
+        </div>
+        <div class="skill-card">
+            <img src="image/python.png" class="skill-img" alt="">
+            <div class="skill-level">50%</div>
+            <h1 class="skill-name">PYTHON</h1>
+            <p class="skill-info">Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together.</p>
+        </div>
+        <div class="skill-card">
+            <img src="image/php.png" class="skill-img" alt="">
+            <div class="skill-level">70%</div>
+            <h1 class="skill-name">PHP</h1>
+            <p class="skill-info">PHP is an open-source, server-side programming language that can be used to create websites, applications, customer relationship management systems and more. It is a widely-used general-purpose language that can be embedded into HTML.</p>
+        </div>
+        <div class="skill-card">
+            <img src="image/css.png" class="skill-img" alt="">
+            <div class="skill-level">98%</div>
+            <h1 class="skill-name">CSS</h1>
+            <p class="skill-info">CSS (Cascading Style Sheets) is used to style and layout web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features.</p>
+        </div>
+        <div class="skill-card">
+            <img src="image/node.png" class="skill-img" alt="">
+            <div class="skill-level">58%</div>
+            <h1 class="skill-name">NODE.JS</h1>
+            <p class="skill-info">Node.js is a cross-platform, open-source JavaScript runtime environment that can run on Windows, Linux, Unix, macOS, and more. Node.js runs on the V8 JavaScript engine, and executes JavaScript code outside a web browser.</p>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="timeline">
+    <h1 class="heading">education and experience</h1>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">2009-2019</h1>
+            <p class="card-detail"> My study of ssc completed  from St.john's english high school in the year 2019 with the percentage of 70%.Also participated in various functions   </p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">2019-2021</h1>
+            <p class="card-detail"> My Study of Hsc from Thakur College Of Science & Commerce in the year 2022 with the percentage of 74%.                                           </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">2021-2024</h1>
+            <p class="card-detail">My Study of graduation <br>
+                (bca)from  tilak maharashtra vidyapeeth pune</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">2021-2022</h1>
+            <p class="card-detail">I worked as Accountant & regional manager  in a cloth washing company and also mangae company database for 1 year.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">2022-2023</h1>
+            <p class="card-detail">I have also worked in flipkart as warehouse manager, data Analyst ,staff handler.</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+    <script> 
+    const links = document.querySelectorAll('.link');
+const sections = document.querySelectorAll('section');
+
+let activeLink = 0;
+
+links.forEach((link, i) => {
+    link.addEventListener('click', () => {
+        if(activeLink != i){
+            links[activeLink].classList.remove('active');
+            link.classList.add('active');
+            sections[activeLink].classList.remove('active');
+
+            setTimeout(() => {
+                activeLink = i;
+                sections[i].classList.add('active');
+            }, 1000);
+        }
+    })
+})
+
+    
+    </script>
+</body>
+</html>
